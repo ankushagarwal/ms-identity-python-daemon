@@ -54,7 +54,7 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
-
+print(result)
 if "access_token" in result:
     # Calling graph using the access token
     graph_data = requests.get(  # Use token to call downstream service
